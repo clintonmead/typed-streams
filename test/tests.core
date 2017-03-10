@@ -1,0 +1,18 @@
+[1 of 1] Compiling Main             ( Tests.hs, Tests.o )
+
+Tests.hs:29:11: error:
+    • Variable not in scope:
+        inline
+          :: ((Int -> Int -> Int)
+              -> Int -> Stream Data.Stream.Typed.RunTime Int -> Int)
+             -> (Integer -> Integer -> Integer) -> Integer -> t0 -> Int
+    • Perhaps you meant ‘unlines’ (imported from Prelude)
+
+Tests.hs:29:36: error:
+    • Variable not in scope:
+        inline
+          :: ((Int -> Int)
+              -> Stream Data.Stream.Typed.RunTime Int
+              -> Stream Data.Stream.Typed.RunTime Int)
+             -> (Int -> Int) -> RunTimeStream Int -> t0
+    • Perhaps you meant ‘unlines’ (imported from Prelude)

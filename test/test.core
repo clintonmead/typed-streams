@@ -1,0 +1,998 @@
+[1 of 1] Compiling Main             ( Tests.hs, Tests.o )
+
+==================== Tidy Core ====================
+Result size of Tidy Core = {terms: 120, types: 98, coercions: 11}
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+n :: Int
+[GblId,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True, Guidance=IF_ARGS [] 10 20}]
+n = I# 100000000#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+$trModule2 :: TrName
+[GblId,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True, Guidance=IF_ARGS [] 30 20}]
+$trModule2 = TrNameS "main"#
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+$trModule1 :: TrName
+[GblId,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True, Guidance=IF_ARGS [] 30 20}]
+$trModule1 = TrNameS "Main"#
+
+-- RHS size: {terms: 3, types: 0, coercions: 0}
+$trModule :: Module
+[GblId,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True, Guidance=IF_ARGS [] 10 30}]
+$trModule = Module $trModule2 $trModule1
+
+-- RHS size: {terms: 10, types: 3, coercions: 0}
+f :: Int -> Int
+[GblId,
+ Arity=1,
+
+ Unf=Unf{Src=InlineStable, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True,
+         Guidance=ALWAYS_IF(arity=1,unsat_ok=True,boring_ok=False)
+         Tmpl= \ (x_a8aQ [Occ=Once!] :: Int) ->
+                 case x_a8aQ of _ [Occ=Dead] { I# x1_aaA7 ->
+                 I# (*# x1_aaA7 (andI# x1_aaA7 3#))
+                 }}]
+f =
+  \ (x_a8aQ :: Int) ->
+    case x_a8aQ of _ [Occ=Dead] { I# x1_aaA7 ->
+    I# (*# x1_aaA7 (andI# x1_aaA7 3#))
+    }
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+ans2 :: Int
+[GblId,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True, Guidance=IF_ARGS [] 10 20}]
+ans2 = I# 0#
+
+-- RHS size: {terms: 7, types: 10, coercions: 0}
+sumL :: RunTimeStream Int -> Int
+[GblId,
+ Arity=1,
+
+ Unf=Unf{Src=InlineStable, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True,
+         Guidance=ALWAYS_IF(arity=1,unsat_ok=True,boring_ok=False)
+         Tmpl= \ (x_a8bY [Occ=Once] :: RunTimeStream Int) ->
+                 Data.Stream.Typed.$fAlternativeStream_$cfoldl'
+                   @ ('Data.Stream.Typed.Known 'Data.Stream.Typed.RunTimeLength)
+                   @ Int
+                   @ Int
+                   $fNumInt_$c+
+                   ans2
+                   (Data.Stream.Typed.$fAlternativeStream_$cfmap
+                      @ ('Data.Stream.Typed.Known 'Data.Stream.Typed.RunTimeLength)
+                      @ Int
+                      @ Int
+                      f
+                      x_a8bY)}]
+sumL =
+  \ (x_a8bY :: RunTimeStream Int) ->
+    Data.Stream.Typed.$fAlternativeStream_$cfoldl'
+      @ ('Data.Stream.Typed.Known 'Data.Stream.Typed.RunTimeLength)
+      @ Int
+      @ Int
+      $fNumInt_$c+
+      ans2
+      (Data.Stream.Typed.$fAlternativeStream_$cfmap
+         @ ('Data.Stream.Typed.Known 'Data.Stream.Typed.RunTimeLength)
+         @ Int
+         @ Int
+         f
+         x_a8bY)
+
+-- RHS size: {terms: 10, types: 5, coercions: 0}
+xs2 :: Int -> (Int, Int)
+[GblId,
+ Arity=1,
+
+ Unf=Unf{Src=InlineStable, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True,
+         Guidance=ALWAYS_IF(arity=1,unsat_ok=True,boring_ok=False)
+         Tmpl= \ (x_a8bX :: Int) ->
+                 (x_a8bX,
+                  case x_a8bX of _ [Occ=Dead] { I# x1_aaAh [Occ=Once] ->
+                  I# (+# x1_aaAh 1#)
+                  })}]
+xs2 =
+  \ (x_a8bX :: Int) ->
+    (x_a8bX,
+     case x_a8bX of _ [Occ=Dead] { I# x1_aaAh ->
+     I# (+# x1_aaAh 1#)
+     })
+
+-- RHS size: {terms: 2, types: 0, coercions: 0}
+xs1 :: Int
+[GblId,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True, Guidance=IF_ARGS [] 10 20}]
+xs1 = I# 1#
+
+-- RHS size: {terms: 4, types: 4, coercions: 2}
+xs :: RunTimeStream Int
+[GblId,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True, Guidance=IF_ARGS [] 10 40}]
+xs =
+  Data.Stream.Typed.RunTimeSingleStream
+    @ ('Data.Stream.Typed.Known 'Data.Stream.Typed.RunTimeLength)
+    @ Int
+    @ Int
+    @~ (<'Data.Stream.Typed.Known 'Data.Stream.Typed.RunTimeLength>_N
+        :: ('Data.Stream.Typed.Known
+              'Data.Stream.Typed.RunTimeLength :: Data.Stream.Typed.Length)
+           ~#
+           ('Data.Stream.Typed.Known
+              'Data.Stream.Typed.RunTimeLength :: Data.Stream.Typed.Length))
+    n
+    xs2
+    xs1
+
+-- RHS size: {terms: 3, types: 4, coercions: 0}
+ans1
+  :: Stream
+       ('Data.Stream.Typed.Known 'Data.Stream.Typed.RunTimeLength) Int
+[GblId,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=False, ConLike=False,
+         WorkFree=False, Expandable=False, Guidance=IF_ARGS [] 30 0}]
+ans1 =
+  Data.Stream.Typed.$fAlternativeStream_$cfmap
+    @ ('Data.Stream.Typed.Known 'Data.Stream.Typed.RunTimeLength)
+    @ Int
+    @ Int
+    f
+    xs
+
+-- RHS size: {terms: 4, types: 4, coercions: 0}
+ans :: Int
+[GblId,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=False, ConLike=False,
+         WorkFree=False, Expandable=False, Guidance=IF_ARGS [] 40 0}]
+ans =
+  Data.Stream.Typed.$fAlternativeStream_$cfoldl'
+    @ ('Data.Stream.Typed.Known 'Data.Stream.Typed.RunTimeLength)
+    @ Int
+    @ Int
+    $fNumInt_$c+
+    ans2
+    ans1
+
+-- RHS size: {terms: 12, types: 13, coercions: 0}
+lvl_rd21 :: String
+
+lvl_rd21 =
+  case ans of _ [Occ=Dead] { I# ww3_ad17 ->
+  case $wshowSignedInt 0# ww3_ad17 ([] @ Char)
+  of _ [Occ=Dead] { (# ww5_ad1b, ww6_ad1c #) ->
+  : @ Char ww5_ad1b ww6_ad1c
+  }
+  }
+
+-- RHS size: {terms: 6, types: 2, coercions: 0}
+main1
+  :: State# RealWorld
+     -> (# State# RealWorld, () #)
+[GblId,
+ Arity=1,
+
+ Unf=Unf{Src=InlineStable, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True,
+         Guidance=ALWAYS_IF(arity=1,unsat_ok=True,boring_ok=False)
+         Tmpl= \ (eta_aaCf [Occ=Once, OS=OneShot]
+                    :: State# RealWorld) ->
+                 Handle.Text.hPutStr2
+                   Handle.FD.stdout
+                   ($fShowInt_$cshow ans)
+                   True
+                   eta_aaCf}]
+main1 =
+  \ (eta_aaCf [OS=OneShot] :: State# RealWorld) ->
+    Handle.Text.hPutStr2
+      Handle.FD.stdout lvl_rd21 True eta_aaCf
+
+-- RHS size: {terms: 1, types: 0, coercions: 3}
+main :: IO ()
+[GblId,
+ Arity=1,
+
+ Unf=Unf{Src=InlineStable, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True,
+         Guidance=ALWAYS_IF(arity=0,unsat_ok=True,boring_ok=True)
+         Tmpl= main1
+               `cast` (Sym (N:IO[0] <()>_R)
+                       :: ((State# RealWorld
+                            -> (# State# RealWorld, () #)) :: *)
+                          ~R#
+                          (IO () :: *))}]
+main =
+  main1
+  `cast` (Sym (N:IO[0] <()>_R)
+          :: ((State# RealWorld
+               -> (# State# RealWorld, () #)) :: *)
+             ~R#
+             (IO () :: *))
+
+-- RHS size: {terms: 2, types: 1, coercions: 3}
+main2
+  :: State# RealWorld
+     -> (# State# RealWorld, () #)
+[GblId,
+ Arity=1,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True, Guidance=IF_ARGS [] 20 60}]
+main2 =
+  runMainIO1
+    @ ()
+    (main1
+     `cast` (Sym (N:IO[0] <()>_R)
+             :: ((State# RealWorld
+                  -> (# State# RealWorld, () #)) :: *)
+                ~R#
+                (IO () :: *)))
+
+-- RHS size: {terms: 1, types: 0, coercions: 3}
+:main :: IO ()
+[GblId,
+ Arity=1,
+
+ Unf=Unf{Src=InlineStable, TopLvl=True, Value=True, ConLike=True,
+         WorkFree=True, Expandable=True,
+         Guidance=ALWAYS_IF(arity=0,unsat_ok=True,boring_ok=True)
+         Tmpl= main2
+               `cast` (Sym (N:IO[0] <()>_R)
+                       :: ((State# RealWorld
+                            -> (# State# RealWorld, () #)) :: *)
+                          ~R#
+                          (IO () :: *))}]
+:main =
+  main2
+  `cast` (Sym (N:IO[0] <()>_R)
+          :: ((State# RealWorld
+               -> (# State# RealWorld, () #)) :: *)
+             ~R#
+             (IO () :: *))
+
+-- RHS size: {terms: 21, types: 4, coercions: 0}
+$wgo [InlPrag=[0], Occ=LoopBreaker]
+  :: Int# -> Int# -> Int#
+
+$wgo =
+  \ (ww_sd0g :: Int#) (ww1_sd0k :: Int#) ->
+    case tagToEnum# @ Bool (># ww1_sd0k 100000000#)
+    of _ [Occ=Dead] {
+      False ->
+        $wgo
+          (+#
+             ww_sd0g (*# ww1_sd0k (andI# ww1_sd0k 3#)))
+          (+# ww1_sd0k 1#);
+      True -> ww_sd0g
+    }
+
+-- RHS size: {terms: 7, types: 1, coercions: 0}
+fast :: Int
+[GblId,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Value=False, ConLike=False,
+         WorkFree=False, Expandable=False, Guidance=IF_ARGS [] 50 20}]
+fast =
+  case $wgo 0# 1# of ww_sd0o { __DEFAULT ->
+  I# ww_sd0o
+  }
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl __stginit_main@main:Main
+.type __stginit_main@main:Main, @object
+__stginit_main@main:Main:
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl n_closure
+.type n_closure, @object
+n_closure:
+	.quad	I#_static_info
+	.quad	100000000
+
+==================== Asm code ====================
+.section .rodata
+.align 8
+.align 1
+cd2A_str:
+	.byte	109
+	.byte	97
+	.byte	105
+	.byte	110
+	.byte	0
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl $trModule2_closure
+.type $trModule2_closure, @object
+$trModule2_closure:
+	.quad	TrNameS_static_info
+	.quad	cd2A_str
+
+==================== Asm code ====================
+.section .rodata
+.align 8
+.align 1
+cd2E_str:
+	.byte	77
+	.byte	97
+	.byte	105
+	.byte	110
+	.byte	0
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl $trModule1_closure
+.type $trModule1_closure, @object
+$trModule1_closure:
+	.quad	TrNameS_static_info
+	.quad	cd2E_str
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl $trModule_closure
+.type $trModule_closure, @object
+$trModule_closure:
+	.quad	Module_static_info
+	.quad	$trModule2_closure+1
+	.quad	$trModule1_closure+1
+	.quad	3
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl f_closure
+.type f_closure, @object
+f_closure:
+	.quad	f_info
+
+==================== Asm code ====================
+.section .text
+.align 8
+.align 8
+	.quad	4294967301
+	.quad	0
+	.quad	15
+.globl f_info
+.type f_info, @object
+f_info:
+_cd2Z:
+	leaq -8(%rbp),%rax
+	cmpq %r15,%rax
+	jb _cd39
+_cd3a:
+	movq $block_cd2W_info,-8(%rbp)
+	movq %r14,%rbx
+	addq $-8,%rbp
+	testb $7,%bl
+	jne _cd2W
+_cd2X:
+	jmp *(%rbx)
+_cd3d:
+	movq $16,904(%r13)
+	jmp stg_gc_unpt_r1
+.align 8
+	.quad	0
+	.quad	32
+block_cd2W_info:
+_cd2W:
+	addq $16,%r12
+	cmpq 856(%r13),%r12
+	ja _cd3d
+_cd3c:
+	movq 7(%rbx),%rax
+	movq $I#_con_info,-8(%r12)
+	movq %rax,%rbx
+	andl $3,%ebx
+	imulq %rbx,%rax
+	movq %rax,(%r12)
+	leaq -7(%r12),%rbx
+	addq $8,%rbp
+	jmp *(%rbp)
+_cd39:
+	movl $f_closure,%ebx
+	jmp *-8(%r13)
+	.size f_info, .-f_info
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl ans2_closure
+.type ans2_closure, @object
+ans2_closure:
+	.quad	I#_static_info
+	.quad	0
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl sumL_closure
+.type sumL_closure, @object
+sumL_closure:
+	.quad	sumL_info
+	.quad	0
+
+==================== Asm code ====================
+.section .text
+.align 8
+.align 8
+	.long	Sd3E_srt-(sumL_info)+0
+	.long	0
+	.quad	4294967301
+	.quad	0
+	.quad	30064771087
+.globl sumL_info
+.type sumL_info, @object
+sumL_info:
+_cd3y:
+	leaq -8(%rbp),%rax
+	cmpq %r15,%rax
+	jb _cd3z
+_cd3A:
+	movq $block_cd3w_info,-8(%rbp)
+	movq %r14,%rsi
+	movl $f_closure+1,%r14d
+	addq $-8,%rbp
+	jmp Data.Stream.Typed.$fAlternativeStream_$cfmap_info
+_cd3z:
+	movl $sumL_closure,%ebx
+	jmp *-8(%r13)
+.align 8
+	.long	Sd3E_srt-(block_cd3w_info)+0
+	.long	0
+	.quad	0
+	.quad	4294967328
+block_cd3w_info:
+_cd3w:
+	movq %rbx,%rdi
+	movl $ans2_closure+1,%esi
+	movl $$fNumInt_$c+_closure+2,%r14d
+	addq $8,%rbp
+	jmp Data.Stream.Typed.$fAlternativeStream_$cfoldl'_info
+	.size sumL_info, .-sumL_info
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl xs2_closure
+.type xs2_closure, @object
+xs2_closure:
+	.quad	xs2_info
+
+==================== Asm code ====================
+.section .text
+.align 8
+.align 8
+	.quad	1
+	.quad	17
+sat_sd2h_info:
+_cd42:
+	leaq -24(%rbp),%rax
+	cmpq %r15,%rax
+	jb _cd49
+_cd4a:
+	movq $stg_upd_frame_info,-16(%rbp)
+	movq %rbx,-8(%rbp)
+	movq $block_cd3Z_info,-24(%rbp)
+	movq 16(%rbx),%rbx
+	addq $-24,%rbp
+	testb $7,%bl
+	jne _cd3Z
+_cd40:
+	jmp *(%rbx)
+_cd4d:
+	movq $16,904(%r13)
+	jmp stg_gc_unpt_r1
+.align 8
+	.quad	0
+	.quad	32
+block_cd3Z_info:
+_cd3Z:
+	addq $16,%r12
+	cmpq 856(%r13),%r12
+	ja _cd4d
+_cd4c:
+	movq 7(%rbx),%rax
+	incq %rax
+	movq $I#_con_info,-8(%r12)
+	movq %rax,(%r12)
+	leaq -7(%r12),%rbx
+	addq $8,%rbp
+	jmp *(%rbp)
+_cd49:
+	jmp *-16(%r13)
+	.size sat_sd2h_info, .-sat_sd2h_info
+
+==================== Asm code ====================
+.section .text
+.align 8
+.align 8
+	.quad	4294967301
+	.quad	0
+	.quad	15
+.globl xs2_info
+.type xs2_info, @object
+xs2_info:
+_cd4f:
+	addq $48,%r12
+	cmpq 856(%r13),%r12
+	ja _cd4j
+_cd4i:
+	movq $sat_sd2h_info,-40(%r12)
+	movq %r14,-24(%r12)
+	movq $(,)_con_info,-16(%r12)
+	movq %r14,-8(%r12)
+	leaq -40(%r12),%rax
+	movq %rax,(%r12)
+	leaq -15(%r12),%rbx
+	jmp *(%rbp)
+_cd4j:
+	movq $48,904(%r13)
+	movl $xs2_closure,%ebx
+	jmp *-8(%r13)
+	.size xs2_info, .-xs2_info
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl xs1_closure
+.type xs1_closure, @object
+xs1_closure:
+	.quad	I#_static_info
+	.quad	1
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl xs_closure
+.type xs_closure, @object
+xs_closure:
+	.quad	Data.Stream.Typed.RunTimeSingleStream_static_info
+	.quad	n_closure+1
+	.quad	xs2_closure+1
+	.quad	xs1_closure+1
+	.quad	3
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl ans1_closure
+.type ans1_closure, @object
+ans1_closure:
+	.quad	ans1_info
+	.quad	0
+	.quad	0
+	.quad	0
+
+==================== Asm code ====================
+.section .text
+.align 8
+.align 8
+	.long	Sd3E_srt-(ans1_info)+8
+	.long	0
+	.quad	0
+	.quad	4294967318
+.globl ans1_info
+.type ans1_info, @object
+ans1_info:
+_cd4D:
+	leaq -16(%rbp),%rax
+	cmpq %r15,%rax
+	jb _cd4E
+_cd4F:
+	movq %r13,%rdi
+	movq %rbx,%rsi
+	subq $8,%rsp
+	xorl %eax,%eax
+	call newCAF
+	addq $8,%rsp
+	testq %rax,%rax
+	je _cd4C
+_cd4B:
+	movq $stg_bh_upd_frame_info,-16(%rbp)
+	movq %rax,-8(%rbp)
+	movl $xs_closure+1,%esi
+	movl $f_closure+1,%r14d
+	addq $-16,%rbp
+	jmp Data.Stream.Typed.$fAlternativeStream_$cfmap_info
+_cd4E:
+	jmp *-16(%r13)
+_cd4C:
+	jmp *(%rbx)
+	.size ans1_info, .-ans1_info
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl ans_closure
+.type ans_closure, @object
+ans_closure:
+	.quad	ans_info
+	.quad	0
+	.quad	0
+	.quad	0
+
+==================== Asm code ====================
+.section .text
+.align 8
+.align 8
+	.long	Sd3E_srt-(ans_info)+0
+	.long	0
+	.quad	0
+	.quad	38654705686
+.globl ans_info
+.type ans_info, @object
+ans_info:
+_cd4R:
+	leaq -16(%rbp),%rax
+	cmpq %r15,%rax
+	jb _cd4S
+_cd4T:
+	movq %r13,%rdi
+	movq %rbx,%rsi
+	subq $8,%rsp
+	xorl %eax,%eax
+	call newCAF
+	addq $8,%rsp
+	testq %rax,%rax
+	je _cd4Q
+_cd4P:
+	movq $stg_bh_upd_frame_info,-16(%rbp)
+	movq %rax,-8(%rbp)
+	movl $ans1_closure,%edi
+	movl $ans2_closure+1,%esi
+	movl $$fNumInt_$c+_closure+2,%r14d
+	addq $-16,%rbp
+	jmp Data.Stream.Typed.$fAlternativeStream_$cfoldl'_info
+_cd4S:
+	jmp *-16(%r13)
+_cd4Q:
+	jmp *(%rbx)
+	.size ans_info, .-ans_info
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+lvl_rd21_closure:
+	.quad	lvl_rd21_info
+	.quad	0
+	.quad	0
+	.quad	0
+
+==================== Asm code ====================
+.section .text
+.align 8
+.align 8
+	.long	Sd3E_srt-(lvl_rd21_info)+32
+	.long	0
+	.quad	0
+	.quad	4294967318
+lvl_rd21_info:
+_cd5b:
+	leaq -24(%rbp),%rax
+	cmpq %r15,%rax
+	jb _cd5h
+_cd5i:
+	movq %r13,%rdi
+	movq %rbx,%rsi
+	subq $8,%rsp
+	xorl %eax,%eax
+	call newCAF
+	addq $8,%rsp
+	testq %rax,%rax
+	je _cd57
+_cd56:
+	movq $stg_bh_upd_frame_info,-16(%rbp)
+	movq %rax,-8(%rbp)
+	movq $block_cd58_info,-24(%rbp)
+	movl $ans_closure,%ebx
+	addq $-24,%rbp
+	testb $7,%bl
+	jne _cd58
+_cd59:
+	jmp *(%rbx)
+_cd5m:
+	movq $24,904(%r13)
+	jmp stg_gc_pp
+.align 8
+	.quad	0
+	.quad	32
+block_cd5e_info:
+_cd5e:
+	addq $24,%r12
+	cmpq 856(%r13),%r12
+	ja _cd5m
+_cd5l:
+	movq $:_con_info,-16(%r12)
+	movq %rbx,-8(%r12)
+	movq %r14,(%r12)
+	leaq -14(%r12),%rbx
+	addq $8,%rbp
+	jmp *(%rbp)
+_cd5h:
+	jmp *-16(%r13)
+.align 8
+	.quad	0
+	.quad	32
+block_cd58_info:
+_cd58:
+	movq $block_cd5e_info,(%rbp)
+	movl $[]_closure+1,%edi
+	movq 7(%rbx),%rsi
+	xorl %r14d,%r14d
+	jmp $wshowSignedInt_info
+_cd57:
+	jmp *(%rbx)
+	.size lvl_rd21_info, .-lvl_rd21_info
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl main1_closure
+.type main1_closure, @object
+main1_closure:
+	.quad	main1_info
+	.quad	0
+
+==================== Asm code ====================
+.section .text
+.align 8
+.align 8
+	.long	Sd3E_srt-(main1_info)+40
+	.long	0
+	.quad	4294967299
+	.quad	0
+	.quad	30064771087
+.globl main1_info
+.type main1_info, @object
+main1_info:
+_cd5w:
+	movl $True_closure+2,%edi
+	movl $lvl_rd21_closure,%esi
+	movl $Handle.FD.stdout_closure,%r14d
+	jmp Handle.Text.hPutStr2_info
+	.size main1_info, .-main1_info
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl main_closure
+.type main_closure, @object
+main_closure:
+	.quad	main_info
+	.quad	0
+
+==================== Asm code ====================
+.section .text
+.align 8
+.align 8
+	.long	Sd3E_srt-(main_info)+64
+	.long	0
+	.quad	4294967299
+	.quad	0
+	.quad	4294967311
+.globl main_info
+.type main_info, @object
+main_info:
+_cd5H:
+	jmp main1_info
+	.size main_info, .-main_info
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl main2_closure
+.type main2_closure, @object
+main2_closure:
+	.quad	main2_info
+	.quad	0
+
+==================== Asm code ====================
+.section .text
+.align 8
+.align 8
+	.long	Sd3E_srt-(main2_info)+64
+	.long	0
+	.quad	4294967299
+	.quad	0
+	.quad	12884901903
+.globl main2_info
+.type main2_info, @object
+main2_info:
+_cd5S:
+	movl $main1_closure+1,%r14d
+	jmp runMainIO1_info
+	.size main2_info, .-main2_info
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl :main_closure
+.type :main_closure, @object
+:main_closure:
+	.quad	:main_info
+	.quad	0
+
+==================== Asm code ====================
+.section .text
+.align 8
+.align 8
+	.long	Sd3E_srt-(:main_info)+80
+	.long	0
+	.quad	4294967299
+	.quad	0
+	.quad	4294967311
+.globl :main_info
+.type :main_info, @object
+:main_info:
+_cd63:
+	jmp main2_info
+	.size :main_info, .-:main_info
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl $wgo_closure
+.type $wgo_closure, @object
+$wgo_closure:
+	.quad	$wgo_info
+
+==================== Asm code ====================
+.section .text
+.align 8
+.align 8
+	.quad	8589934604
+	.quad	0
+	.quad	15
+.globl $wgo_info
+.type $wgo_info, @object
+$wgo_info:
+_cd6B:
+_cd6w:
+	cmpq $100000000,%rsi
+	jg _cd6I
+_cd6H:
+	movq %rsi,%rax
+	andl $3,%eax
+	movq %rsi,%rbx
+	imulq %rax,%rbx
+	addq %rbx,%r14
+	incq %rsi
+	jmp _cd6w
+_cd6I:
+	movq %r14,%rbx
+	jmp *(%rbp)
+	.size $wgo_info, .-$wgo_info
+
+==================== Asm code ====================
+.section .data
+.align 8
+.align 1
+.globl fast_closure
+.type fast_closure, @object
+fast_closure:
+	.quad	fast_info
+	.quad	0
+	.quad	0
+	.quad	0
+
+==================== Asm code ====================
+.section .text
+.align 8
+.align 8
+	.quad	0
+	.quad	22
+.globl fast_info
+.type fast_info, @object
+fast_info:
+_cd7e:
+	leaq -24(%rbp),%rax
+	cmpq %r15,%rax
+	jb _cd7i
+_cd7j:
+	movq %r13,%rdi
+	movq %rbx,%rsi
+	subq $8,%rsp
+	xorl %eax,%eax
+	call newCAF
+	addq $8,%rsp
+	testq %rax,%rax
+	je _cd7b
+_cd7a:
+	movq $stg_bh_upd_frame_info,-16(%rbp)
+	movq %rax,-8(%rbp)
+	movq $block_cd7c_info,-24(%rbp)
+	movl $1,%esi
+	xorl %r14d,%r14d
+	addq $-24,%rbp
+	jmp $wgo_info
+_cd7m:
+	movq $16,904(%r13)
+	jmp stg_gc_unbx_r1
+.align 8
+	.quad	0
+	.quad	32
+block_cd7c_info:
+_cd7c:
+	addq $16,%r12
+	cmpq 856(%r13),%r12
+	ja _cd7m
+_cd7l:
+	movq $I#_con_info,-8(%r12)
+	movq %rbx,(%r12)
+	leaq -7(%r12),%rbx
+	addq $8,%rbp
+	jmp *(%rbp)
+_cd7i:
+	jmp *-16(%r13)
+_cd7b:
+	jmp *(%rbx)
+	.size fast_info, .-fast_info
+
+==================== Asm code ====================
+.section .data.rel.ro
+.align 8
+.align 1
+Sd3E_srt:
+	.quad	Data.Stream.Typed.$fAlternativeStream_$cfoldl'_closure
+	.quad	Data.Stream.Typed.$fAlternativeStream_$cfmap_closure
+	.quad	sumL_closure
+	.quad	ans1_closure
+	.quad	ans_closure
+	.quad	Handle.FD.stdout_closure
+	.quad	Handle.Text.hPutStr2_closure
+	.quad	lvl_rd21_closure
+	.quad	main1_closure
+	.quad	runMainIO1_closure
+	.quad	main2_closure
+
+Linking Tests ...
+

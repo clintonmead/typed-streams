@@ -1,0 +1,6 @@
+[1 of 1] Compiling Main             ( Tests.hs, Tests.o )
+
+==================== Tidy Core rules ====================
+
+
+Linking tests ...
