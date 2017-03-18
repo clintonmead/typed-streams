@@ -67,7 +67,7 @@ And this runs almost as fast as the handwritten code.
 
 Now you may be able to get this speed out of ordinary lists with some fancy rewrite rules
 (and indeed this Stream library does have a few fancy rewrite rules itself) there more
-theortical advantages that Data.Stream.Stream' could have over lists.
+theortical advantages that 'Data.Stream.Typed.Stream' can have over lists.
 
 Unlike ordinary lists, streams do not store the data directly. They just store a way to generate the data.
 
