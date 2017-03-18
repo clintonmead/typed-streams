@@ -1,5 +1,5 @@
 name:                 typed-streams
-version:              0.1.0.0
+version:              0.1.0.1
 synopsis:             A stream based replacement for lists
 description:
   This is an (incomplete) stream based replacement for lists, but already includes significant
